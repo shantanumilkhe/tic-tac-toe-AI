@@ -30,58 +30,58 @@ const handleWin = (letter) => {
 }
 
 const checkGameStatus = () => {
-    const topLeft = celldivs[0].classList[2];
-    const topMiddle = celldivs[1].classList[2];
-    const topRight = celldivs[2].classList[2];
-    const middleLeft = celldivs[3].classList[2];
-    const middleMiddle = celldivs[4].classList[2];
-    const middleRight = celldivs[5].classList[2];
-    const bottomLeft = celldivs[6].classList[2];
-    const bottomMiddle = celldivs[7].classList[2];
-    const bottomRight = celldivs[8].classList[2];
+    const a11 = celldivs[0].classList[2];
+    const a12 = celldivs[1].classList[2];
+    const a13 = celldivs[2].classList[2];
+    const a21 = celldivs[3].classList[2];
+    const a22 = celldivs[4].classList[2];
+    const a23 = celldivs[5].classList[2];
+    const a31 = celldivs[6].classList[2];
+    const a32 = celldivs[7].classList[2];
+    const a33 = celldivs[8].classList[2];
 
-    //check winner 
-    if (topLeft && topLeft === topMiddle && topLeft === topRight) {
-        handleWin(topLeft);
+    //check winner RR
+    if (a11 && a11 === a12 && a11 === a13) {
+        handleWin(a11);
         celldivs[0].classList.add('won');
         celldivs[1].classList.add('won');
         celldivs[2].classList.add('won');
-      } else if (middleLeft && middleLeft === middleMiddle && middleLeft === middleRight) {
-        handleWin(middleLeft);
+      } else if (a21 && a21 === a22 && a21 === a23) {
+        handleWin(a21);
         celldivs[3].classList.add('won');
         celldivs[4].classList.add('won');
         celldivs[5].classList.add('won');
-      } else if (bottomLeft && bottomLeft === bottomMiddle && bottomLeft === bottomRight) {
-        handleWin(bottomLeft);
+      } else if (a31 && a31 === a32 && a31 === a33) {
+        handleWin(a31);
         celldivs[6].classList.add('won');
         celldivs[7].classList.add('won');
         celldivs[8].classList.add('won');
-      } else if (topLeft && topLeft === middleLeft && topLeft === bottomLeft) {
-        handleWin(topLeft);
+      } else if (a11 && a11 === a21 && a11 === a31) {
+        handleWin(a11);
         celldivs[0].classList.add('won');
         celldivs[3].classList.add('won');
         celldivs[6].classList.add('won');
-      } else if (topMiddle && topMiddle === middleMiddle && topMiddle === bottomMiddle) {
-        handleWin(topMiddle);
+      } else if (a12 && a12 === a22 && a12 === a32) {
+        handleWin(a12);
         celldivs[1].classList.add('won');
         celldivs[4].classList.add('won');
         celldivs[7].classList.add('won');
-      } else if (topRight && topRight === middleRight && topRight === bottomRight) {
-        handleWin(topRight);
+      } else if (a13 && a13 === a23 && a13 === a33) {
+        handleWin(a13);
         celldivs[2].classList.add('won');
         celldivs[5].classList.add('won');
         celldivs[8].classList.add('won');
-      } else if (topLeft && topLeft === middleMiddle && topLeft === bottomRight) {
-        handleWin(topLeft);
+      } else if (a11 && a11 === a22 && a11 === a33) {
+        handleWin(a11);
         celldivs[0].classList.add('won');
         celldivs[4].classList.add('won');
         celldivs[8].classList.add('won');
-      } else if (topRight && topRight === middleMiddle && topRight === bottomLeft) {
-        handleWin(topRight);
+      } else if (a13 && a13 === a22 && a13 === a31) {
+        handleWin(a13);
         celldivs[2].classList.add('won');
         celldivs[4].classList.add('won');
         celldivs[6].classList.add('won');
-      } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
+      } else if (a11 && a12 && a13 && a21 && a22 && a23 && a31 && a32 && a33) {
         gameIsLive = false;
         statusdiv.innerHTML = 'Game is tied!';
       } else {
@@ -104,6 +104,7 @@ const handlereset = (e) => {
     for ( const celldiv of celldivs){
         celldiv.classList.remove('x');
         celldiv.classList.remove('o');
+        celldiv.classList.remove('won');
     }
 
 }
